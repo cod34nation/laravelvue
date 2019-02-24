@@ -12,6 +12,18 @@ import VueRouter from 'vue-router';
 import moment from 'moment';
 import { Form, HasError, AlertError } from 'vform'
 
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+window.Toast = Toast;
+
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
@@ -42,6 +54,10 @@ let routes = [
   Vue.filter('myDate',function(created){
       return moment(created).format('MMMM Do YYYY');
   });
+
+ 
+  window.Fire =  new Vue();
+
 
 /**
  * The following block of code may be used to automatically register your
